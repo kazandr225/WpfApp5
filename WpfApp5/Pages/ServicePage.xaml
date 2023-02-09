@@ -65,13 +65,13 @@
                             <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Grid.Column="0" Height="220"></Image>
 
                             <StackPanel Grid.Column="1" Margin="10">
-                                <TextBlock Text="{Binding Title}" Margin="10"></TextBlock>
+                                <TextBlock Text="{Binding Title_Service}" Margin="10"></TextBlock>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Name="tbBasePrice" Uid="{Binding Discount}" Text="{Binding Cost}"></TextBlock>
+                                    <TextBlock Name="tbBasePrice" Uid="{Binding Discount}" Text="{Binding Cost_Service}"></TextBlock>
                                     <TextBlock Name="tbCurrentPrice" Text="{Binding CurrentPrice, StringFormat={}{0:g} рублей}"></TextBlock>
                                     <TextBlock Text=" за "></TextBlock>
-                                    <TextBlock Text="{Binding DurationInMinute, StringFormat={}{0} минут}"></TextBlock>
+                                    <TextBlock Name="tbMinute" Text="{Binding DurationInSeconds, StringFormat={}{0} минут}"></TextBlock>
                                 </StackPanel>
 
                                 <TextBlock Name="tbDiscount" Text="{Binding Discount, StringFormat={}*скидка {0}%}"></TextBlock>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp5.Classes;
 
 namespace WpfApp5.Pages
 {
@@ -23,29 +24,40 @@ namespace WpfApp5.Pages
         public ServicePage()
         {
             InitializeComponent();
+            listViewService.ItemsSource = BaseClass.EM.Service.ToList();
+
+            cbDiscount.SelectedIndex = 0;
+            cbSort.SelectedIndex = 0;
+        }
+
+
+
+        private void sortDataService() //сортировка и фильтрация
+        { 
+            
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            sortDataService();
         }
 
         private void tbDescriptiob_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            sortDataService();
         }
 
         private void cbDiscount_Selectionchanged(object sender, SelectionChangedEventArgs e)
         {
-
+            sortDataService();
         }
 
         private void cbSort_Selectionchanged(object sender, SelectionChangedEventArgs e)
         {
-
+            sortDataService();
         }
 
-        private void btnAddClient_Click(object sender, RoutedEventArgs e)
+        private void btnAddClient_Click(object sender, RoutedEventArgs e) 
         {
 
         }
