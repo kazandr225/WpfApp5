@@ -35,7 +35,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <ComboBox Name="cbDiscount" Width="150" SelectionChanged="cbDiscount_Selectionchanged">
-                    <ComboBoxItem>Все скидки</ComboBoxItem>
+                    <ComboBoxItem>Все</ComboBoxItem>
                     <ComboBoxItem>от 0% до 5%</ComboBoxItem>
                     <ComboBoxItem>от 5% до 15%</ComboBoxItem>
                     <ComboBoxItem>от 15% до 30%</ComboBoxItem>
@@ -68,10 +68,9 @@
                                 <TextBlock Text="{Binding Title_Service}" Margin="10"></TextBlock>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Name="tbBasePrice" Uid="{Binding Discount}" Text="{Binding Cost_Service}"></TextBlock>
-                                    <TextBlock Name="tbCurrentPrice" Text="{Binding CurrentPrice, StringFormat={}{0:g} рублей}"></TextBlock>
+                                    <TextBlock Name="tbBasePrice" Text="{Binding Cost_Service, StringFormat='{}{0:0}\ '}"></TextBlock>
                                     <TextBlock Text=" за "></TextBlock>
-                                    <TextBlock Name="tbMinute" Text="{Binding DurationInSeconds, StringFormat={}{0} минут}"></TextBlock>
+                                    <TextBlock Name="tbMinute" Uid="{Binding id_Service}" Loaded="tbMinute_Loaded"></TextBlock>
                                 </StackPanel>
 
                                 <TextBlock Name="tbDiscount" Text="{Binding Discount, StringFormat={}*скидка {0}%}"></TextBlock>

@@ -30,11 +30,49 @@ namespace WpfApp5.Pages
             cbSort.SelectedIndex = 0;
         }
 
-
-
         private void sortDataService() //сортировка и фильтрация
-        { 
-            
+        {
+            List<Service> servicelist = new List<Service>();
+
+            switch (cbDiscount.SelectedIndex) //фильтрация по выбранной скидке
+            {
+                case 0:
+                    servicelist = BaseClass.EM.Service.ToList();
+                    break;
+
+                case 1:
+                    servicelist = BaseClass.EM.Service.Where(x => x.Discount >= 0 && x.Discount < 5).ToList();
+                    break;
+
+                case 2:
+                    servicelist = BaseClass.EM.Service.Where(x => x.Discount >= 5 && x.Discount < 15).ToList();
+                    break;
+
+                case 3:
+                    servicelist = BaseClass.EM.Service.Where(x => x.Discount >= 15 && x.Discount < 30).ToList();
+                    break;
+
+                case 4:
+                    servicelist = BaseClass.EM.Service.Where(x => x.Discount >= 30 && x.Discount < 70).ToList();
+                    break;
+
+                case 5:
+                    servicelist = BaseClass.EM.Service.Where(x => x.Discount >= 70 && x.Discount < 100).ToList();
+                    break;
+
+            }
+
+            if (tbDescription.Text != " " && tbDescription.Text != "") //фильтрация по описанию
+            {
+                servicelist = servicelist.Where(x => x.Title_Service.ToLower().Contains(tbDescription.Text.ToLower())).ToList();
+            }
+
+            if (tbSearch.Text != " " && tbSearch.Text != "") //сортировака по имени
+            {
+                servicelist = servicelist.Where(x => x.Title_Service.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
+            }
+
+            listViewService.ItemsSource = servicelist; //отображаем изменения в листе
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -70,6 +108,24 @@ namespace WpfApp5.Pages
         private void btnDeleateService_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void tbMinute_Loaded(object sender, RoutedEventArgs e) //переаод секунд в минуты
+        {
+            TextBlock tb = (TextBlock)sender;
+            int index = Convert.ToInt32(tb.Uid); ;
+
+            //ищем, где хранится количество секунд
+            List<Service> S = BaseClass.EM.Service.Where(x => x.id_Service == index).ToList();
+
+            int min = 0;
+
+            foreach (Service ser in S) //переводим секунды в минуты
+            {
+                min += Convert.ToInt32(ser.DurationInSeconds / 60);
+            }
+
+            tb.Text = min.ToString() + " минут"; //присваиваем значение
         }
     }
 }

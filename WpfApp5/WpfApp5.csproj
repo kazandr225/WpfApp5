@@ -69,7 +69,6 @@
     </ApplicationDefinition>
     <Compile Include="Classes\BaseClass.cs" />
     <Compile Include="Classes\FrameClass.cs" />
-    <Compile Include="Classes\PartialServiceClass.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
