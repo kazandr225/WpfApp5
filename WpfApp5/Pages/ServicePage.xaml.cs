@@ -100,14 +100,34 @@ namespace WpfApp5.Pages
 
         }
 
+        private void btnServiceUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+
+            //Создаем объект, который содежит услугу, которую редактируем
+            Service service = BaseClass.EM.Service.FirstOrDefault(x => x.id_Service == index);
+
+            FrameClass.MaiFrame.Navigate(new AddServicePage(service));
+        }
+
         private void btnAddService_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameClass.MaiFrame.Navigate(new AddServicePage());
         }
 
         private void btnDeleateService_Click(object sender, RoutedEventArgs e)
         {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
 
+            //Создаем объект, который содержит информацию об услуге, которую требуется удалить
+            Service service = BaseClass.EM.Service.FirstOrDefault(x => x.id_Service == index);
+
+            BaseClass.EM.Service.Remove(service);
+            BaseClass.EM.SaveChanges();
+
+            FrameClass.MaiFrame.Navigate(new ServicePage()); //перезагружаем страницу для отображения изменений
         }
 
         private void tbMinute_Loaded(object sender, RoutedEventArgs e) //переаод секунд в минуты

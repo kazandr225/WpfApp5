@@ -77,7 +77,7 @@
 
                                 <StackPanel Orientation="Horizontal">
                                     <Button Uid="{Binding id_Service}" Name="btnAddClient" Content="Запись" Click="btnAddClient_Click"></Button>
-                                    <Button Uid="{Binding id_Service}" Name="btnEditService" Content="Добавить" Click="btnAddService_Click"></Button>
+                                    <Button Uid="{Binding id_Service}" Name="btnEditService" Content="Редактировать" Click="btnServiceUpdate_Click"></Button>
                                     <Button Uid="{Binding id_Service}" Name="btnDeleteService" Content="Удалить" Click="btnDeleateService_Click"></Button>
                                 </StackPanel>
                             </StackPanel>
