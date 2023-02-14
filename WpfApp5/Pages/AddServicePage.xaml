@@ -9,33 +9,30 @@
       Title="AddServicePage">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" Height="350">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
-                <TextBlock>Название</TextBlock>
-                <TextBox Name="tbNameService" Width="500"></TextBox>
-            </StackPanel>
+        <StackPanel VerticalAlignment="Center" Height="500">
+            
+            <GroupBox Header="Название">
+                <TextBox Name="tbNameService"></TextBox>
+            </GroupBox>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Margin="115,5">Стоимость</TextBlock>
-                <TextBox Name="tbPrice" Width="70" Height="20"></TextBox>
-            </StackPanel>
+            <GroupBox Header="Стоимость">
+                <TextBox Name="tbPrice"></TextBox>
+            </GroupBox>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Margin="115,5">Скидка</TextBlock>
-                <TextBox Name="tbDiscount" Width="70" Height="20" Margin="0,5"></TextBox>
-            </StackPanel>
+            <GroupBox Header="Скидка">
+                <TextBox Name="tbDiscount"></TextBox>
+            </GroupBox>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Margin="115,0">Длительность (мин)</TextBlock>
-                <TextBox Name="tbDuration" Width="70" Height="20"></TextBox>
-            </StackPanel>
+            <GroupBox Header="Длительность (мин)">
+                <TextBox Name="tbDuration"></TextBox>
+            </GroupBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
-                <TextBlock Margin="5,0">Описание</TextBlock>
-                <TextBox Name="tbDescription" Margin="5,0" Width="485" Height="90"></TextBox>
+                <TextBlock Margin="5,10,0,5">Описание</TextBlock>
+                <TextBox Name="tbDescription" Margin="5,10,0,0" Width="485" Height="90"></TextBox>
             </StackPanel>
 
-            <Image></Image>
+            <Image Name="photoservice" Width="50" Height="50"></Image>
 
             <Button Name="btnAddImage" Click="btnAddImage_Click" Width="200" Height="30" Margin="0,5,0,0">Добавить изображение</Button>
             <Button Name="btnSaveChanges" Click="btnSaveChanges_Click" Width="200" Height="30" Margin="0,10">Сохранить</Button>

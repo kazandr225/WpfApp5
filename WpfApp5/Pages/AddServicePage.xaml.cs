@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace WpfApp5.Pages
     {
         Service SERVICE;
         bool flagUpdate = false;
+        string path;
 
 
         //подгружаем данные из БД
@@ -54,11 +56,21 @@ namespace WpfApp5.Pages
             tbDiscount.Text = Convert.ToString(service.Discount);
             tbDuration.Text = Convert.ToString(service.DurationInSeconds / 60);
             tbDescription.Text = service.Description_Service;
+
+            if (service.MainImagePath != null)
+            {
+                BitmapImage img = new BitmapImage(new Uri(service.MainImagePath, UriKind.RelativeOrAbsolute));
+                photoservice.Source = img;
+            }
         }
 
         private void btnAddImage_Click(object sender, RoutedEventArgs e)
         {
-           
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.ShowDialog();
+            path = OFD.FileName;
+            string[] arrayPath = path.Split('\\');
+            path = "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];
         }
 
         private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
