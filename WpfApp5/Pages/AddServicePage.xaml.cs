@@ -28,11 +28,11 @@ namespace WpfApp5.Pages
         //подгружаем данные из БД
         public void uploadFields()
         {
-            tbNameService.Text = SERVICE.Title_Service;
-            tbPrice.Text = Convert.ToString(SERVICE.Cost_Service);
-            tbDiscount.Text = Convert.ToString(SERVICE.Discount);
-            tbDuration.Text = Convert.ToString(SERVICE.DurationInSeconds / 60);
-            tbDescription.Text = SERVICE.Description_Service;
+            //tbNameService.Text = SERVICE.Title_Service;
+            //tbPrice.Text = Convert.ToString(SERVICE.Cost_Service);
+            //tbDiscount.Text = Convert.ToString(SERVICE.Discount);
+            //tbDuration.Text = Convert.ToString(SERVICE.DurationInSeconds / 60);
+            //tbDescription.Text = SERVICE.Description_Service;
         }
 
         //Конструктор для создания новой услуги
